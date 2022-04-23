@@ -58,15 +58,9 @@ export default StyleSheet.create({
     logo: {
         flex: 1,
         width: 300,
-<<<<<<< HEAD
-        height: 120,
-        resizeMode: 'stretch',
-        margin: 30,
-=======
         height: 90,
         resizeMode: 'contain',
         margin: 10,
->>>>>>> 56e03ae508cfcd50044d9d29b1a8441f49be3c2a
         alignSelf: "center",
     },
     greyContainer: {

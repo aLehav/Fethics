@@ -1,8 +1,8 @@
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View, Image, SafeAreaView, Button} from 'react-native';
-// // import DropDownPicker from 'react-native-dropdown-picker';
-// import MeetupPage from "./MeetupPage";
-// import RequestPage from "./RequestPage";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Image, SafeAreaView, Button} from 'react-native';
+// import DropDownPicker from 'react-native-dropdown-picker';
+import MeetupPage from "./MeetupPage";
+import RequestPage from "./RequestPage";
 
 // export default function App() {
 //   // const [open, setOpen] = useState(false);
@@ -96,6 +96,32 @@ const TabNavigator = createMaterialTopTabNavigator(
       screen: VideoScreen,
       navigationOptions: {
         tabBarLabel: "Videos",
+        tabBarIcon: (tabInfo) => (
+          <Ionicons
+            name="ios-videocam-outline"
+            size={tabInfo.focused ? 25 : 20}
+            color={tabInfo.tintColor}
+          />
+        ),
+      },
+    },
+    Meetup: {
+      screen: MeetupPage,
+      navigationOptions: {
+        tabBarLabel: "Meet Up",
+        tabBarIcon: (tabInfo) => (
+          <Ionicons
+            name="ios-videocam-outline"
+            size={tabInfo.focused ? 25 : 20}
+            color={tabInfo.tintColor}
+          />
+        ),
+      },
+    },
+    Request: {
+      screen: RequestPage,
+      navigationOptions: {
+        tabBarLabel: "Request Help",
         tabBarIcon: (tabInfo) => (
           <Ionicons
             name="ios-videocam-outline"
