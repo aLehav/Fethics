@@ -30,15 +30,16 @@ export default StyleSheet.create({
     button: {
         height: 47,
         borderRadius: 5,
-        backgroundColor: '#788eec',
-        width:'auto', 
+        backgroundColor: 'rgba(172, 172, 172, 0.8)',
+        width:'70%', 
         padding:10,
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        margin: 10
     },
     buttonText: {
-        color: 'white',
-        fontSize: 16
+        fontSize: 20,
+        color: '#333333',
     },
     listContainer: {
         marginTop: 20,
@@ -51,15 +52,32 @@ export default StyleSheet.create({
         paddingBottom: 16
     },
     entityText: {
-        fontSize: 20,
-        color: '#333333'
+        fontSize: 30,
+        color: '#333333',
     },
     logo: {
         flex: 1,
         width: 300,
+<<<<<<< HEAD
         height: 120,
         resizeMode: 'stretch',
         margin: 30,
+=======
+        height: 90,
+        resizeMode: 'contain',
+        margin: 10,
+>>>>>>> 56e03ae508cfcd50044d9d29b1a8441f49be3c2a
         alignSelf: "center",
     },
+    greyContainer: {
+        width: 'auto',
+        padding: 10,
+        height: 'auto',
+        marginBottom: 10,
+        backgroundColor: 'rgba(172, 172, 172, 0.8)',
+        alignContent: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        borderRadius: 5
+    }
 })
