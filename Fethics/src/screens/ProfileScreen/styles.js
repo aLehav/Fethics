@@ -73,5 +73,50 @@ export default StyleSheet.create({
         justifyContent: "center",
         textAlign: "center",
         borderRadius: 5
-    }
+    },
+    text: {
+        color: "#006600", 
+        fontSize: 35,
+    },
+    description: {
+        fontSize: 10, 
+        textAlign: "left", 
+        paddingLeft: 10,
+    },
+    class: {
+        fontSize: 30,
+        paddingLeft: 10,
+        textAlign: "left",
+        textDecorationLine: "underline",
+    },
+    assignment: {
+        fontSize: 25,
+        paddingLeft: 10,
+        textAlign: "left",
+    },
+    price: {
+        fontSize: 20,
+        textAlign: "right",
+        margin: "auto",
+        color: "#565656",
+    },
+    smallButton: {
+        margin: "auto",
+        width: "45%",
+        marginTop: 10,
+        backgroundColor: "white",
+        borderRadius: 10,
+        paddingVertical: 10,
+    },
+    acceptBox: {
+        margin: "auto",
+        marginVertical: 10,
+        width: "80%",
+        paddingVertical: 8,
+        borderRadius: 10,
+        backgroundColor: "#C4C4C4",
+        color: "#20232a",
+        textAlign: "center",
+        fontWeight: "bold",
+    },
 })
