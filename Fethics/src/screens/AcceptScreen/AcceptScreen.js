@@ -60,9 +60,12 @@ export default function AcceptScreen(props) {
 
     return(
         <View style={styles.container}>
-            <Text style={styles.entityText}>
-                Fethics Accept Screen
-            </Text>
+            <View>
+                <Image 
+                    style={[styles.logo, {marginBottom: 0, paddingBottom: 0}]}
+                    source={require('../../../assets/icon.png')}
+                />
+            </View>
             {/* <View style={styles.formContainer}>
                 
                 <TextInput
