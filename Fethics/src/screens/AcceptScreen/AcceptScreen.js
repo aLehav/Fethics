@@ -12,6 +12,14 @@ export default function AcceptScreen(props) {
     const userID = props.extraData.id
     const navigation = props.navigation
 
+    const onAcceptButtonPress = (docID) => {
+        if(userID){
+            const document = assignmentRef.doc(docID);
+            console.log(document)
+            document.update({"Accepted By":userID})
+        }
+    }
+
     useEffect(() => {
         assignmentRef
             // .where("Created By", "!=", userID)
@@ -50,7 +58,7 @@ export default function AcceptScreen(props) {
                 <TouchableOpacity style={styles.smallButton}>
                     <Text>Open File</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.smallButton}>
+                <TouchableOpacity style={styles.smallButton} onPress={() => onAcceptButtonPress(item.id)}>
                   <Text>Accept</Text>
                 </TouchableOpacity>
               </View>
