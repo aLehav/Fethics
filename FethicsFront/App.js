@@ -1,20 +1,71 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { createAppContainer } from "react-navigation";
+import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import ProfileScreen from "./ProfileScreen.js";
+import TextScreen from "./TextScreen";
+import VideoScreen from "./VideoScreen";
+ 
+const TabNavigator = createMaterialTopTabNavigator(
+  {
+    //code for the pages
+    Profile: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarLabel: "Profile",
+        tabBarIcon: (tabInfo) => (
+          <Ionicons
+            name="ios-person-circle-outline"
+            size={tabInfo.focused ? 25 : 20}
+            color={tabInfo.tintColor}
+          />
+        ),
+      },
+    },
+    TextS: {
+      screen: TextScreen,
+      navigationOptions: {
+        tabBarLabel: "Text",
+        tabBarIcon: (tabInfo) => (
+          <Ionicons
+            name="text"
+            size={tabInfo.focused ? 24 : 20}
+            color={tabInfo.tintColor}
+          />
+        ),
+      },
+    },
+    Video: {
+      screen: VideoScreen,
+      navigationOptions: {
+        tabBarLabel: "Videos",
+        tabBarIcon: (tabInfo) => (
+          <Ionicons
+            name="ios-videocam-outline"
+            size={tabInfo.focused ? 25 : 20}
+            color={tabInfo.tintColor}
+          />
+        ),
+      },
+    },
   },
-});
+  {
+    //code for the top
+    tabBarOptions: {
+      showIcon: true,
+      style: {
+        backgroundColor: "#006600",
+      },
+    },
+    tabBarPosition: 'bottom',
+  }
+ );
+  const Navigator = createAppContainer(TabNavigator);
+  export default function App() {
+  return (
+    <Navigator>
+      <ProfileScreen />
+    </Navigator>
+  );
+ }
+ 
