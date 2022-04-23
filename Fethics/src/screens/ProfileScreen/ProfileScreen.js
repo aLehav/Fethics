@@ -3,7 +3,7 @@ import { Button, FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } f
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 
-export default function HomeScreen(props) {
+export default function ProfileScreen(props) {
 
     const [entityText, setEntityText] = useState('')
     const [entities, setEntities] = useState([])
@@ -67,7 +67,9 @@ export default function HomeScreen(props) {
             <Text style={styles.entityText}>
                 Fethics
             </Text>
-            <Button onPress={() => navigation.navigate('Request')}>
+            <Button onPress={() => {
+                navigation.navigate('SignedInScreen', {screen: 'Request Help'})
+                }}>
                 Request
             </Button>
             <View style={styles.formContainer}>
