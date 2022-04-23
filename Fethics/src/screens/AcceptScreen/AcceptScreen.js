@@ -54,11 +54,31 @@ export default function AcceptScreen(props) {
 
     const renderEntity = ({item, index}) => {
         return (
-            <View style={styles.greyContainer}>
-                <Text style={styles.entityText}>
-                    {index}. {item.Course}
-                    {/* Course, Description, Price, Title */}
-                </Text>
+            // <View style={styles.greyContainer}>
+            //     <Text style={styles.entityText}>
+            //         {index}. {item.Course}
+            //         {/* Course, Description, Price, Title */}
+            //     </Text>
+            // </View>
+            <View style={[styles.acceptBox, {width: "60%"}]}>
+              <View style={{flexDirection: "row"}}>
+                <View style={{width: "80%"}}>
+                  <Text style={styles.class}>{item.Course}</Text>
+                  <Text style={styles.assignment}>{item.Title}</Text>
+                </View>
+                <Text style={styles.price}>${item.Price}</Text>
+              </View>
+              <View>
+                <Text style={styles.description}>{item.Description}</Text>
+              </View>
+              <View style={{flexDirection: "row"}}>
+                <TouchableOpacity style={styles.smallButton}>
+                    <Text>Open File</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.smallButton}>
+                  <Text>Accept</Text>
+                </TouchableOpacity>
+              </View>
             </View>
         )
     }
