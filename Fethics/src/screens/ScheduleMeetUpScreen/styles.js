@@ -19,14 +19,16 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     input: {
-        height: 30,
+        height: 80,
+        margin: 10,
         borderRadius: 5,
         overflow: 'hidden',
         backgroundColor: 'white',
         paddingLeft: 16,
         // flex: 1,
         marginRight: 5,
-        marginBottom: 10
+        marginBottom: 10,
+        fontSize: 20,
     },
     button: {
         height: 47,
@@ -74,5 +76,37 @@ export default StyleSheet.create({
         justifyContent: "center",
         textAlign: "center",
         borderRadius: 5
-    }
+    },
+    input2: {
+        height: 40,
+        marginTop: 12,
+        marginBottom: 20,
+        marginRight: 12,
+        marginLeft: 12,
+        borderWidth: 1,
+        paddingTop: 0,
+        padding: 10,
+        borderRadius: 50,
+        backgroundColor: "#eaeaea"
+    },
+    final_input: {
+        height: 120,
+        marginTop: 12,
+        marginBottom: 20,
+        marginRight: 12,
+        marginLeft: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 25,
+        backgroundColor: "#eaeaea"
+    },
+    subject_text: {
+        paddingLeft: 20,
+        paddingTop: 30,
+        paddingBottom: 0,
+    },
+    other_text: {
+        paddingLeft: 20,
+        paddingBottom: 0,
+    } 
 })
