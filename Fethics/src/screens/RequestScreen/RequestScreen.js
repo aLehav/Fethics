@@ -10,22 +10,26 @@ export default function RequestScreen(props) {
     const [course, setCourse] = useState('')
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
-
+    const userID = props.extraData.id
     const assignmentRef = firebase.firestore().collection('assignments')
     
     const onAddButtonPress = () => {
-        if (entityText && entityText.length > 0) {
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+        if (title.length > 0 && course.length > 0 && price > 0 && description.length > 0) {
             const data = {
-                text: entityText,
-                authorID: userID,
-                createdAt: timestamp,
+                "Course": course,
+                "Title": title,
+                "Price": price,
+                "Description": description,
+                "Accepted By": "",
+                "Created By": userID,
             };
             assignmentRef
                 .add(data)
                 .then(_doc => {
-                    setEntityText('')
-                    Keyboard.dismiss()
+                    setTitle('')
+                    setCourse('')
+                    setPrice(0)
+                    setDescription('')
                 })
                 .catch((error) => {
                     alert(error)
