@@ -6,26 +6,25 @@ import { firebase, firebaseApp } from '../../firebase/config'
 
 export default function AcceptScreen(props) {
     
-    const [entityText, setEntityText] = useState('')
-    const [entities, setEntities] = useState([])
+    const [assignments, setAssignments] = useState([])
 
-    const entityRef = firebase.firestore().collection('entities')
+    const assignmentRef = firebase.firestore().collection('assignments')
     const userID = props.extraData.id
     const navigation = props.navigation
 
     useEffect(() => {
-        entityRef
-            .where("authorID", "==", userID)
-            .orderBy('createdAt', 'desc')
+        assignmentRef
+            // .where("authorID", "==", userID)
+            // .orderBy('createdAt', 'desc')
             .onSnapshot(
                 querySnapshot => {
-                    const newEntities = []
+                    const newAssignments = []
                     querySnapshot.forEach(doc => {
-                        const entity = doc.data()
-                        entity.id = doc.id
-                        newEntities.push(entity)
+                        const assignment = doc.data()
+                        assignment.id = doc.id
+                        newAssignments.push(assignment)
                     });
-                    setEntities(newEntities)
+                    setAssignments(newAssignments)
                 },
                 error => {
                     console.log(error)
@@ -33,31 +32,32 @@ export default function AcceptScreen(props) {
             )
     }, [])
 
-    const onAddButtonPress = () => {
-        if (entityText && entityText.length > 0) {
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-            const data = {
-                text: entityText,
-                authorID: userID,
-                createdAt: timestamp,
-            };
-            entityRef
-                .add(data)
-                .then(_doc => {
-                    setEntityText('')
-                    Keyboard.dismiss()
-                })
-                .catch((error) => {
-                    alert(error)
-                });
-        }
-    }
+    // const onAddButtonPress = () => {
+    //     if (entityText && entityText.length > 0) {
+    //         const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    //         const data = {
+    //             text: entityText,
+    //             authorID: userID,
+    //             createdAt: timestamp,
+    //         };
+    //         assignmentRef
+    //             .add(data)
+    //             .then(_doc => {
+    //                 setEntityText('')
+    //                 Keyboard.dismiss()
+    //             })
+    //             .catch((error) => {
+    //                 alert(error)
+    //             });
+    //     }
+    // }
 
     const renderEntity = ({item, index}) => {
         return (
-            <View style={styles.entityContainer}>
+            <View style={styles.greyContainer}>
                 <Text style={styles.entityText}>
-                    {index}. {item.text}
+                    {index}. {item.Course}
+                    {/* Course, Description, Price, Title */}
                 </Text>
             </View>
         )
@@ -68,7 +68,7 @@ export default function AcceptScreen(props) {
             <Text style={styles.entityText}>
                 Fethics Accept Screen
             </Text>
-            <View style={styles.formContainer}>
+            {/* <View style={styles.formContainer}>
                 
                 <TextInput
                     style={styles.input}
@@ -82,16 +82,16 @@ export default function AcceptScreen(props) {
                 <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableOpacity>
-            </View>
-            { entities && (
-                <View style={styles.greyContainer}>
+            </View> */}
+            { assignments && (
+                // <View style={styles.greyContainer}>
                     <FlatList
-                        data={entities}
+                        data={assignments}
                         renderItem={renderEntity}
                         keyExtractor={(item) => item.id}
                         removeClippedSubviews={true}
                     />
-                </View>
+                // </View>
             )}
         </View>
     );

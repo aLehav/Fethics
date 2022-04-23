@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Image, FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import { Ionicons } from "@expo/vector-icons";
 
 export default function ProfileScreen(props) {
 
@@ -15,9 +16,10 @@ export default function ProfileScreen(props) {
                     style={[styles.logo, {marginBottom: 0, paddingBottom: 0}]}
                     source={require('../../../assets/icon.png')}
                 />
-                <Image 
+                <Ionicons
+                    size={100}
                     style={[styles.logo, {width:100, marginTop: 0, paddingTop: 0, marginBottom: 50}]}
-                    source={require('../../../assets/user-solid.svg')}
+                    name="ios-person-circle-outline"
                 />
             </View>
             <View style={styles.greyContainer}>
