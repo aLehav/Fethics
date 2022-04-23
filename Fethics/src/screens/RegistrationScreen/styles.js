@@ -54,5 +54,13 @@ export default StyleSheet.create({
         color: "#788eec",
         fontWeight: "bold",
         fontSize: 16
-    }
+    },
+    logo: {
+        flex: 1,
+        width: 300,
+        height: 120,
+        resizeMode: 'stretch,',
+        margin: 30,
+        alignSelf: "center",
+    },
 })

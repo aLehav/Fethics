@@ -55,8 +55,11 @@ export default StyleSheet.create({
         color: '#333333'
     },
     logo: {
-        width: 100,
-        height: 40,
-        resizeMode: 'stretch,'
-    }
+        flex: 1,
+        width: 300,
+        height: 120,
+        resizeMode: 'stretch,',
+        margin: 30,
+        alignSelf: "center",
+    },
 })

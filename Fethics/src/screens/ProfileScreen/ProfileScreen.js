@@ -66,7 +66,7 @@ export default function ProfileScreen(props) {
         <View style={styles.container}>
             <Image 
             style={styles.logo}
-            source={require('../../../assets/Fethics.png')}
+            source={require('../../../assets/icon.png')}
             />
             <TouchableOpacity style={styles.button}
             onPress={() => {
