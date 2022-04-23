@@ -8,14 +8,14 @@ export default function MeetUpScreen(props) {
     
     const [assignments, setAssignments] = useState([])
 
-    const assignmentRef = firebase.firestore().collection('assignments')
+    const meetupRef = firebase.firestore().collection('meetups')
     const userID = props.extraData.id
     const navigation = props.navigation
 
     useEffect(() => {
-        assignmentRef
+        meetupRef
             // .where("Created By", "!=", userID)
-            .where("Accepted By", "==", "")
+            // .where("Accepted By", "==", "")
             // .orderBy('createdAt', 'desc')
             .onSnapshot(
                 querySnapshot => {
@@ -35,13 +35,13 @@ export default function MeetUpScreen(props) {
 
     const renderEntity = ({item, index}) => {
         return (
-            <View style={[styles.acceptBox, {width: "60%"}]}>
+            <View style={[styles.acceptBox, {width:300}]}>
               <View style={{flexDirection: "row"}}>
                 <View style={{width: "80%"}}>
                   <Text style={styles.class}>{item.Course}</Text>
-                  <Text style={styles.assignment}>{item.Title}</Text>
+                  <Text style={styles.assignment}>{item.Location}</Text>
                 </View>
-                <Text style={styles.price}>${item.Price}</Text>
+                <Text style={styles.price}>{item.Time}</Text>
               </View>
               <View>
                 <Text style={styles.description}>{item.Description}</Text>

@@ -22,30 +22,30 @@ import { firebase, firebaseApp } from '../../firebase/config'
 
 export default function ScheduleMeetUpScreen(props) {
 
-    const [title, setTitle] = useState('')
     const [course, setCourse] = useState('')
-    const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
+    const [time, setTime] = useState('')
+    const [location, setLocation] = useState('')
     const userID = props.extraData.id
-    const assignmentRef = firebase.firestore().collection('assignments')
+    const meetupRef = firebase.firestore().collection('meetups')
     
     const onAddButtonPress = () => {
-        if (title.length > 0 && course.length > 0 && price > 0 && description.length > 0) {
+        if (course.length > 0 && time.length > 0 && location.length > 0) {
             const data = {
                 "Course": course,
                 "Location": location,
                 "Time": time,
-                "Other info...": misc,
-                "Accepted By": "",
+                "Description": description,
+                "User Count": 1,
                 "Created By": userID,
             };
-            assignmentRef
+            meetupRef
                 .add(data)
                 .then(_doc => {
                     setCourse('')
                     setLocation('')
                     setTime('')
-                    set('')
+                    setDescription('')
                 })
                 .catch((error) => {
                     alert(error)
@@ -77,8 +77,8 @@ export default function ScheduleMeetUpScreen(props) {
                     style={[styles.input, {width: "90%"}]}
                     placeholder='Location'
                     placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setTitle(text)}
-                    value={title}
+                    onChangeText={(text) => setLocation(text)}
+                    value={location}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
@@ -87,8 +87,8 @@ export default function ScheduleMeetUpScreen(props) {
                     style={[styles.input, {width: "90%"}]}
                     placeholder='Available Times'
                     placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setTitle(text)}
-                    value={title}
+                    onChangeText={(text) => setTime(text)}
+                    value={time}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
