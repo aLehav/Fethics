@@ -14,7 +14,8 @@ export default function AcceptScreen(props) {
 
     useEffect(() => {
         assignmentRef
-            // .where("authorID", "==", userID)
+            // .where("Created By", "!=", userID)
+            .where("Accepted By", "==", "")
             // .orderBy('createdAt', 'desc')
             .onSnapshot(
                 querySnapshot => {
@@ -32,34 +33,8 @@ export default function AcceptScreen(props) {
             )
     }, [])
 
-    // const onAddButtonPress = () => {
-    //     if (entityText && entityText.length > 0) {
-    //         const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-    //         const data = {
-    //             text: entityText,
-    //             authorID: userID,
-    //             createdAt: timestamp,
-    //         };
-    //         assignmentRef
-    //             .add(data)
-    //             .then(_doc => {
-    //                 setEntityText('')
-    //                 Keyboard.dismiss()
-    //             })
-    //             .catch((error) => {
-    //                 alert(error)
-    //             });
-    //     }
-    // }
-
     const renderEntity = ({item, index}) => {
         return (
-            // <View style={styles.greyContainer}>
-            //     <Text style={styles.entityText}>
-            //         {index}. {item.Course}
-            //         {/* Course, Description, Price, Title */}
-            //     </Text>
-            // </View>
             <View style={[styles.acceptBox, {width: "60%"}]}>
               <View style={{flexDirection: "row"}}>
                 <View style={{width: "80%"}}>
