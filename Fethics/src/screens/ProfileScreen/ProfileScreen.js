@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 
@@ -64,15 +64,28 @@ export default function ProfileScreen(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.entityText}>
-                Fethics
-            </Text>
-            <Button onPress={() => {
+            <Image 
+            style={styles.logo}
+            source={require('../../../assets/Fethics.png')}
+            />
+            <TouchableOpacity style={styles.button}
+            onPress={() => {
                 navigation.navigate('SignedInScreen', {screen: 'Request Help'})
                 }}>
-                Request
-            </Button>
+                <Text style={styles.buttonText}>
+                    Request Help
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}
+            onPress={() => {
+                navigation.navigate('SignedInScreen', {screen: 'Request Help'})
+                }}>
+                <Text style={styles.buttonText}>
+                    Schedule Meet Up
+                </Text>
+            </TouchableOpacity>
             <View style={styles.formContainer}>
+                
                 <TextInput
                     style={styles.input}
                     placeholder='Add new entity'
