@@ -47,7 +47,10 @@ export default function App() {
       <Stack.Navigator>
         { user ? (
           <>
-            <Stack.Screen name="SignedInScreen">
+            <Stack.Screen name="SignedInScreen" 
+            options={{
+                headerShown: false
+            }}>
               {props => <SignedInScreen {...props} extraData={user} />}
             </Stack.Screen>
             {/* <Stack.Screen name="Home">
